@@ -1,0 +1,53 @@
+<div class="navbarWrapper">
+  <div class="navbar">
+    <div class="mainLocation">
+      @if (isDarkMode){
+      <img
+        class="imageLocations"
+        src="assets/icons/locationWhite.svg"
+        alt="location"
+      />
+      } @else {
+      <img
+        class="imageLocations"
+        src="assets/icons/location.svg"
+        alt="location"
+      />
+      }
+
+      <div class="textLocations">
+        {{ location }}
+      </div>
+    </div>
+
+    <form class="searchInput">
+      <input
+        type="text"
+        id="search"
+        name="search"
+        [(ngModel)]="enteredSearch"
+        placeholder="Search location"
+      />
+      <div
+        (click)="onSearch()"
+        style="
+          width: 24px;
+          height: 24px;
+          position: relative;
+          border-radius: 20px;
+          overflow: hidden;
+        "
+      >
+        <img class="imageSearch" src="assets/icons/search.svg" alt="search" />
+      </div>
+    </form>
+
+    <div class="spanDays">
+      <div class="textDays">Daily</div>
+      <div class="textDays">Weekly</div>
+      <div class="textDays">Monthly</div>
+    </div>
+
+    <app-theme-toggle />
+  </div>
+</div>

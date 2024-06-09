@@ -1,0 +1,33 @@
+<button mat-icon-button (click)="toggleTheme()">
+  <div class="themeSwitch">
+    <div
+      style="
+        color: white;
+        font-size: 12px;
+        font-family: Saira;
+        font-weight: 400;
+        line-height: 16px;
+        letter-spacing: 0.4px;
+        word-wrap: break-word;
+      "
+    >
+      {{ isDarkMode ? "Light" : "Dark" }}
+    </div>
+    <div
+      style="
+        width: 25px;
+        height: 25px;
+
+        border-radius: 29px;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        display: flex;
+      "
+    >
+      <div style="width: 24px; height: 24px; position: relative">
+        <mat-icon>{{ isDarkMode ? "wb_sunny" : "nights_stay" }}</mat-icon>
+      </div>
+    </div>
+  </div>
+</button>
