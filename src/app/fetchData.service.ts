@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { environment } from '../environments/environment';
 
 const apiKey = environment.apiKey;
-console.log(`API Key: ${apiKey}`);
 
 @Injectable({
   providedIn: 'root',
@@ -11,7 +10,9 @@ export class FetchDataService {
   url = 'http://api.openweathermap.org';
   apiKey = environment.apiKey;
   location = '';
-  dataWeather: any;
+  temperature = '';
+  icon = '';
+  fetchedData = undefined;
 
   constructor() {
     console.log('FetchDataService created');
@@ -30,8 +31,10 @@ export class FetchDataService {
     );
     const dataFinal = await responseFinal.json();
     this.location = dataFinal.name;
-    this.dataWeather = dataFinal;
-    console.log('first data:', dataFinal);
+    this.temperature = dataFinal.main.temp;
+    this.icon = dataFinal.weather[0].icon;
+    this.fetchedData = dataFinal;
+    console.log('service data:', dataFinal);
     return dataFinal;
   }
 }

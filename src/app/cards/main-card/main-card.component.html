@@ -1,0 +1,463 @@
+<div
+  style="
+    width: 40vw;
+
+    padding: 16px;
+    background: #1c1b33;
+    border-radius: 16px;
+    justify-content: space-between;
+    align-items: space-between;
+
+    display: inline-flex;
+  "
+>
+  <div
+    style="
+      width: 290px;
+      height: 360px;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: flex-start;
+      display: inline-flex;
+    "
+  >
+    <div
+      style="
+        width: 160px;
+        height: 160px;
+        justify-content: center;
+        align-items: center;
+        display: inline-flex;
+      "
+    >
+      <img style="width: 160px; height: 160px" [src]="weatherIcon" />
+    </div>
+    <div
+      style="
+        color: white;
+        font-size: 45px;
+        font-family: Saira;
+        font-weight: 400;
+        line-height: 44px;
+        letter-spacing: 1.5px;
+        word-wrap: break-word;
+      "
+    >
+      {{ temperature }}°C
+    </div>
+    <div
+      style="
+        color: white;
+        font-size: 32px;
+        font-family: Saira;
+        font-weight: 400;
+        line-height: 36px;
+        letter-spacing: 1.5px;
+        word-wrap: break-word;
+      "
+    >
+      {{ location }}
+    </div>
+    <div
+      style="
+        color: white;
+        font-size: 16px;
+        font-family: Saira;
+        font-weight: 400;
+        line-height: 24px;
+        letter-spacing: 0.15px;
+        word-wrap: break-word;
+      "
+    >
+      Real Feel -1C
+    </div>
+    <div
+      style="
+        align-self: stretch;
+        height: 0px;
+        background: #d9d9d9;
+        border: 2px #2e335a solid;
+      "
+    ></div>
+    <div
+      style="
+        width: fit-content;
+        justify-content: space-between;
+        align-items: center;
+        display: inline-flex;
+        gap: 8px;
+      "
+    >
+      <div style="width: 16px; height: 16px; position: relative">
+        <div
+          style="
+            width: 16px;
+            height: 16px;
+            left: 0px;
+            top: 0px;
+            position: absolute;
+          "
+        ></div>
+        <img
+          src="assets/icons/calendar.svg"
+          style="
+            width: 16px;
+            height: 16px;
+            left: 0px;
+            top: 0px;
+            position: absolute;
+          "
+        />
+      </div>
+      <div
+        style="
+          color: white;
+          font-size: 16px;
+          font-family: Saira;
+          font-weight: 400;
+          line-height: 24px;
+          letter-spacing: 0.15px;
+        "
+      >
+        {{ date }}
+      </div>
+    </div>
+    <div
+      style="
+        width: fit-content;
+        justify-content: space-between;
+        align-items: center;
+        display: inline-flex;
+        gap: 8px;
+      "
+    >
+      <div style="width: 16px; height: 16px; position: relative">
+        <div
+          style="
+            width: 16px;
+            height: 16px;
+            left: 0px;
+            top: 0px;
+            position: absolute;
+          "
+        ></div>
+        <img
+          src="assets/icons/time.svg"
+          style="
+            width: 16px;
+            height: 16px;
+            left: 0px;
+            top: 0px;
+            position: absolute;
+          "
+        />
+      </div>
+      <div
+        style="
+          color: white;
+          font-size: 16px;
+          font-family: Saira;
+          font-weight: 400;
+          line-height: 24px;
+          letter-spacing: 0.15px;
+          word-wrap: break-word;
+        "
+      >
+        {{ time }}
+      </div>
+    </div>
+  </div>
+  <div
+    style="
+      width: 290px;
+      height: 360px;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      display: inline-flex;
+    "
+  >
+    <div
+      style="
+        color: white;
+        font-size: 32px;
+        font-family: Saira;
+        font-weight: 400;
+        line-height: 36px;
+        letter-spacing: 1.5px;
+        word-wrap: break-word;
+      "
+    >
+      Temperature
+    </div>
+    <div style="width: 279px; height: 98.39px; position: relative">
+      <div
+        style="
+          width: 279px;
+          height: 98px;
+          left: 0px;
+          top: 0px;
+          position: absolute;
+        "
+      ></div>
+      <div
+        style="
+          width: 237.45px;
+          height: 29.56px;
+          left: 31.37px;
+          top: 69.76px;
+          position: absolute;
+          transform: rotate(-14.39deg);
+          transform-origin: 0 0;
+          border: 1px white solid;
+        "
+      ></div>
+    </div>
+    <div
+      style="
+        align-self: stretch;
+        justify-content: space-between;
+        align-items: flex-start;
+        display: inline-flex;
+      "
+    >
+      <div
+        style="
+          width: 64px;
+          height: 50px;
+          flex-direction: column;
+          justify-content: space-between;
+          align-items: center;
+          display: inline-flex;
+        "
+      >
+        <div
+          style="
+            color: white;
+            font-size: 16px;
+            font-family: Saira;
+            font-weight: 400;
+            line-height: 24px;
+            letter-spacing: 0.15px;
+            word-wrap: break-word;
+          "
+        >
+          Morning
+        </div>
+        <div
+          style="
+            color: white;
+            font-size: 16px;
+            font-family: Saira;
+            font-weight: 400;
+            line-height: 24px;
+            letter-spacing: 0.15px;
+            word-wrap: break-word;
+          "
+        >
+          1’
+        </div>
+      </div>
+      <div
+        style="
+          width: 77px;
+          height: 50px;
+          flex-direction: column;
+          justify-content: space-between;
+          align-items: center;
+          display: inline-flex;
+        "
+      >
+        <div
+          style="
+            color: white;
+            font-size: 16px;
+            font-family: Saira;
+            font-weight: 400;
+            line-height: 24px;
+            letter-spacing: 0.15px;
+            word-wrap: break-word;
+          "
+        >
+          Afternoon
+        </div>
+        <div
+          style="
+            color: white;
+            font-size: 16px;
+            font-family: Saira;
+            font-weight: 400;
+            line-height: 24px;
+            letter-spacing: 0.15px;
+            word-wrap: break-word;
+          "
+        >
+          1’
+        </div>
+      </div>
+      <div
+        style="
+          width: 61px;
+          height: 50px;
+          flex-direction: column;
+          justify-content: space-between;
+          align-items: center;
+          display: inline-flex;
+        "
+      >
+        <div
+          style="
+            color: white;
+            font-size: 16px;
+            font-family: Saira;
+            font-weight: 400;
+            line-height: 24px;
+            letter-spacing: 0.15px;
+            word-wrap: break-word;
+          "
+        >
+          Evening
+        </div>
+        <div
+          style="
+            color: white;
+            font-size: 16px;
+            font-family: Saira;
+            font-weight: 400;
+            line-height: 24px;
+            letter-spacing: 0.15px;
+            word-wrap: break-word;
+          "
+        >
+          1’
+        </div>
+      </div>
+      <div
+        style="
+          width: 42px;
+          height: 50px;
+          flex-direction: column;
+          justify-content: space-between;
+          align-items: center;
+          display: inline-flex;
+        "
+      >
+        <div
+          style="
+            color: white;
+            font-size: 16px;
+            font-family: Saira;
+            font-weight: 400;
+            line-height: 24px;
+            letter-spacing: 0.15px;
+            word-wrap: break-word;
+          "
+        >
+          Night
+        </div>
+        <div
+          style="
+            color: white;
+            font-size: 16px;
+            font-family: Saira;
+            font-weight: 400;
+            line-height: 24px;
+            letter-spacing: 0.15px;
+            word-wrap: break-word;
+          "
+        >
+          1’
+        </div>
+      </div>
+    </div>
+    <div
+      style="
+        align-self: stretch;
+        height: 0px;
+        background: #d9d9d9;
+        border: 2px #2e335a solid;
+      "
+    ></div>
+    <div
+      style="
+        align-self: stretch;
+        justify-content: space-between;
+        align-items: center;
+        display: inline-flex;
+      "
+    >
+      <div
+        style="
+          height: 24px;
+          justify-content: space-between;
+          align-items: center;
+          display: flex;
+          gap: 8px;
+        "
+      >
+        <img src="assets/icons/pressure.svg" />
+        <div
+          style="
+            color: white;
+            font-size: 16px;
+            font-family: Saira;
+            font-weight: 400;
+            line-height: 24px;
+            letter-spacing: 0.15px;
+            word-wrap: break-word;
+          "
+        >
+          720hpa
+        </div>
+      </div>
+      <div
+        style="
+          height: 24px;
+          justify-content: space-between;
+          align-items: center;
+          display: flex;
+          gap: 8px;
+        "
+      >
+        <img src="assets/icons/humidity.svg" />
+        <div
+          style="
+            color: white;
+            font-size: 16px;
+            font-family: Saira;
+            font-weight: 400;
+            line-height: 24px;
+            letter-spacing: 0.15px;
+            word-wrap: break-word;
+          "
+        >
+          54%
+        </div>
+      </div>
+      <div
+        style="
+          height: 24px;
+          justify-content: space-between;
+          align-items: center;
+          display: flex;
+          gap: 8px;
+        "
+      >
+        <img src="assets/icons/wind.svg" />
+        <div
+          style="
+            color: white;
+            font-size: 16px;
+            font-family: Saira;
+            font-weight: 400;
+            line-height: 24px;
+            letter-spacing: 0.15px;
+            word-wrap: break-word;
+          "
+        >
+          60/h
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

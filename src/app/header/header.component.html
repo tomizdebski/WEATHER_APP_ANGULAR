@@ -1,6 +1,6 @@
 <div class="navbarWrapper">
   <div class="navbar">
-    <div class="mainLocation">
+    <div *ngIf="location" class="mainLocation">
       @if (isDarkMode){
       <img
         class="imageLocations"
@@ -15,12 +15,10 @@
       />
       }
 
-      <div class="textLocations">
-        {{ location }}
-      </div>
+      <div class="textLocations">{{ location }} {{ temperature }}°C</div>
     </div>
 
-    <form class="searchInput">
+    <form class="searchInput" (submit)="onSearch()">
       <input
         type="text"
         id="search"
@@ -28,18 +26,18 @@
         [(ngModel)]="enteredSearch"
         placeholder="Search location"
       />
-      <div
-        (click)="onSearch()"
+      <button
+        type="submit"
         style="
           width: 24px;
           height: 24px;
-          position: relative;
-          border-radius: 20px;
-          overflow: hidden;
+          border: none;
+          background-color: transparent;
+          cursor: pointer;
         "
       >
         <img class="imageSearch" src="assets/icons/search.svg" alt="search" />
-      </div>
+      </button>
     </form>
 
     <div class="spanDays">
