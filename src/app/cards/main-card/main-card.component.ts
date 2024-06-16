@@ -18,6 +18,24 @@ export class MainCardComponent {
 
   // currentDate = new Date();
 
+  get reelFeel() {
+    return this.serviceFetch?.fetchedData?.main.feels_like;
+  }
+
+  get humidity() {
+    return this.serviceFetch?.fetchedData?.main.humidity;
+  }
+
+  get windSpeed() {
+    const speedInMetersPerSecond = this.serviceFetch?.fetchedData?.wind.speed;
+    const speedInKilometersPerHour = speedInMetersPerSecond! * 3.6;
+    return speedInKilometersPerHour;
+  }
+
+  get pressure() {
+    return this.serviceFetch?.fetchedData?.main.pressure;
+  }
+
   get location() {
     return this.serviceFetch.location;
   }
