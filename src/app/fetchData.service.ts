@@ -37,4 +37,56 @@ export class FetchDataService {
     console.log('service data:', dataFinal);
     return dataFinal;
   }
+
+  async fetchWeatherByCoords(lat: number, lon: number) {
+    const response = await fetch(
+      `${this.url}/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${this.apiKey}&units=metric`
+    );
+    const data = await response.json();
+    this.location = data.name;
+    this.temperature = data.main.temp;
+    this.icon = data.weather[0].icon;
+    this.fetchedData = data;
+    console.log('service data:', data);
+    return data;
+  }
+
+  async fetchWeatherByZip(zip: number) {
+    const response = await fetch(
+      `${this.url}/data/2.5/weather?zip=${zip}&appid=${this.apiKey}&units=metric`
+    );
+    const data = await response.json();
+    this.location = data.name;
+    this.temperature = data.main.temp;
+    this.icon = data.weather[0].icon;
+    this.fetchedData = data;
+    console.log('service data:', data);
+    return data;
+  }
+
+  async fetchWeatherByCity(city: string) {
+    const response = await fetch(
+      `${this.url}/data/2.5/weather?q=${city}&appid=${this.apiKey}&units=metric`
+    );
+    const data = await response.json();
+    this.location = data.name;
+    this.temperature = data.main.temp;
+    this.icon = data.weather[0].icon;
+    this.fetchedData = data;
+    console.log('service data:', data);
+    return data;
+  }
+
+  async fetchWeatherByCityId(cityId: number) {
+    const response = await fetch(
+      `${this.url}/data/2.5/weather?id=${cityId}&appid=${this.apiKey}&units=metric`
+    );
+    const data = await response.json();
+    this.location = data.name;
+    this.temperature = data.main.temp;
+    this.icon = data.weather[0].icon;
+    this.fetchedData = data;
+    console.log('service data:', data);
+    return data;
+  }
 }
