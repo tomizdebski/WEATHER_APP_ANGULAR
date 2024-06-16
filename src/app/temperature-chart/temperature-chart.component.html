@@ -1,4 +1,4 @@
-<div id="chart">
+<div *ngIf="weatherDataHourly" id="chart">
   <apx-chart
     [series]="chartSeries"
     [chart]="chartOptions"

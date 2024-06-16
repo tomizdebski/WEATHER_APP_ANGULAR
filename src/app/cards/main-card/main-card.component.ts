@@ -48,6 +48,10 @@ export class MainCardComponent {
     return '/assets/weatherIcons/' + this.serviceFetch.icon + '.svg';
   }
 
+  temperatureForTime(time: string) {
+    return this.serviceFetch?.getTemperatureForTime(time);
+  }
+
   get date() {
     const currentDate = new Date();
     const options = {
@@ -64,6 +68,7 @@ export class MainCardComponent {
   get data() {
     return this.serviceFetch.fetchedData;
   }
+
   get time() {
     const currentDate = new Date();
     const options: Intl.DateTimeFormatOptions = {

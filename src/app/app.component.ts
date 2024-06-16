@@ -37,6 +37,10 @@ export class AppComponent implements OnInit {
           this.position!.coords.latitude,
           this.position!.coords.longitude
         );
+        this.serviceFetch.fetchHourlyWeather(
+          this.position!.coords.latitude,
+          this.position!.coords.longitude
+        );
       },
       (err) => {
         this.error = err.message;

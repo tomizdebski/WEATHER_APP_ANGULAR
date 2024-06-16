@@ -54,9 +54,47 @@ export class FetchDataService {
   temperature = '';
   icon = '';
   fetchedData: WeatherData | undefined = undefined;
+  weatherData: any;
 
   constructor() {
     console.log('FetchDataService created');
+  }
+
+  async fetchHourlyWeather(lat: number, lon: number) {
+    const response = await fetch(
+      `${this.url}/data/3.0/onecall?lat=${lat}&lon=${lon}&exclude=minutely,alerts&appid=${this.apiKey}&units=metric`
+    );
+    const data = await response.json();
+    console.log('hourly data:', data);
+    this.weatherData = data;
+    return data;
+  }
+
+  getTemperatureForTime(time: string): number | null {
+    switch (time) {
+      case 'morning':
+        return this.getTemperatureAtHour(8);
+      case 'noon':
+        return this.getTemperatureAtHour(12);
+      case 'evening':
+        return this.getTemperatureAtHour(18);
+      case 'night':
+        return this.getTemperatureAtHour(24);
+      default:
+        return null;
+    }
+  }
+
+  private getTemperatureAtHour(hour: number): number | null {
+    if (!this.weatherData || !this.weatherData.hourly) {
+      return null;
+    }
+    const targetTime = new Date().setHours(hour, 0, 0, 0) / 1000;
+    const data = this.weatherData.hourly.find(
+      (entry: any) => entry.dt >= targetTime
+    );
+    console.log('hourly_temp', Math.round(data.temp));
+    return data ? Math.round(data.temp) : null;
   }
 
   async fetchCurrentWeather(city: string) {
