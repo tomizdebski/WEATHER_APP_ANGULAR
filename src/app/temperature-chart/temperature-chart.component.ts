@@ -23,14 +23,13 @@ export class TemperatureChartComponent {
     },
   ];
   public chartOptions: ApexChart = {
-    type: 'bar',
-    height: 350,
+    type: 'line',
+    height: 200,
   };
   public xaxis: ApexXAxis = {
-    categories: ['Rano', 'Południe', 'Wieczór', 'Noc'],
+    categories: ['Morning', 'Afternoon', 'Evening', 'Night'],
   };
   public title: ApexTitleSubtitle = {
-    text: 'Temperatura w ciągu dnia',
     align: 'center',
   };
 }

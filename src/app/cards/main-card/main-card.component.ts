@@ -1,11 +1,12 @@
 import { Component, inject } from '@angular/core';
 import { FetchDataService } from '../../fetchData.service';
 import { DatePipe } from '@angular/common';
+import { TemperatureChartComponent } from '../../temperature-chart/temperature-chart.component';
 
 @Component({
   selector: 'app-main-card',
   standalone: true,
-  imports: [],
+  imports: [TemperatureChartComponent],
   templateUrl: './main-card.component.html',
   styleUrl: './main-card.component.css',
   providers: [DatePipe],
