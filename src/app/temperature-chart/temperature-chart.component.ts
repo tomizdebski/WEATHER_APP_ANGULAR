@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NgApexchartsModule } from 'ng-apexcharts';
 import {
@@ -7,6 +7,7 @@ import {
   ApexXAxis,
   ApexTitleSubtitle,
 } from 'ng-apexcharts';
+import { FetchDataService } from '../fetchData.service';
 
 @Component({
   selector: 'app-temperature-chart',
@@ -16,10 +17,21 @@ import {
   styleUrls: ['./temperature-chart.component.css'],
 })
 export class TemperatureChartComponent {
+  private serviceFetch = inject(FetchDataService);
+
+  get weatherDataHourly() {
+    console.log(this.serviceFetch.weatherData);
+    return this.serviceFetch.weatherData;
+  }
+
+  temperatureForTime(time: string) {
+    return this.serviceFetch?.getTemperatureForTime(time);
+  }
+
   public chartSeries: ApexAxisChartSeries = [
     {
       name: 'Temperatura (°C)',
-      data: [15, 22, 18, 10],
+      data: [26, 26, 24, 16],
     },
   ];
   public chartOptions: ApexChart = {
