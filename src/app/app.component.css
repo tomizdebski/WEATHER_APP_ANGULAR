@@ -1,5 +1,6 @@
 .app-container {
   display: flex;
+
   flex-direction: column;
   align-items: center;
   justify-content: start;
@@ -8,4 +9,11 @@
 
 .weatherIcon {
   width: 50vh;
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
 }

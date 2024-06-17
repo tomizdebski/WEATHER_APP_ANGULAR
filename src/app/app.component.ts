@@ -7,6 +7,7 @@ import { FetchDataService } from './fetchData.service';
 import { MainCardComponent } from './cards/main-card/main-card.component';
 import { GeolocationService } from './geolocation.service';
 import { DonutChartComponent } from './donut-chart/donut-chart.component';
+import { CardWeekComponent } from './cards/card-week/card-week.component';
 
 @Component({
   selector: 'app-root',
@@ -20,6 +21,7 @@ import { DonutChartComponent } from './donut-chart/donut-chart.component';
     CommonModule,
     MainCardComponent,
     DonutChartComponent,
+    CardWeekComponent,
   ],
 })
 export class AppComponent implements OnInit {
