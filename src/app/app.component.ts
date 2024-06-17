@@ -6,6 +6,7 @@ import { HeaderComponent } from './header/header.component';
 import { FetchDataService } from './fetchData.service';
 import { MainCardComponent } from './cards/main-card/main-card.component';
 import { GeolocationService } from './geolocation.service';
+import { DonutChartComponent } from './donut-chart/donut-chart.component';
 
 @Component({
   selector: 'app-root',
@@ -18,6 +19,7 @@ import { GeolocationService } from './geolocation.service';
     HeaderComponent,
     CommonModule,
     MainCardComponent,
+    DonutChartComponent,
   ],
 })
 export class AppComponent implements OnInit {
@@ -54,5 +56,8 @@ export class AppComponent implements OnInit {
 
   get data() {
     return this.serviceFetch.fetchedData;
+  }
+  get dataOk() {
+    return this.serviceFetch.dataOk;
   }
 }

@@ -22,6 +22,7 @@ export class HeaderComponent {
     const data = await this.serviceFetch.fetchCurrentWeather(
       this.enteredSearch
     );
+
     console.log('header', data);
   }
 

@@ -24,14 +24,23 @@ export class TemperatureChartComponent {
     return this.serviceFetch.weatherData;
   }
 
-  temperatureForTime(time: string) {
-    return this.serviceFetch?.getTemperatureForTime(time);
+  temperatureForTime(
+    time1: number,
+    time2: number,
+    time3: number,
+    time4: number
+  ) {
+    const temp1 = this.serviceFetch.getTemperatureAtHour(time1);
+    const temp2 = this.serviceFetch.getTemperatureAtHour(time2);
+    const temp3 = this.serviceFetch.getTemperatureAtHour(time3);
+    const temp4 = this.serviceFetch.getTemperatureAtHour(time4);
+    return [temp1, temp2, temp3, temp4];
   }
 
   public chartSeries: ApexAxisChartSeries = [
     {
       name: 'Temperatura (°C)',
-      data: [26, 26, 24, 16],
+      data: this.temperatureForTime(6, 12, 18, 23),
     },
   ];
   public chartOptions: ApexChart = {

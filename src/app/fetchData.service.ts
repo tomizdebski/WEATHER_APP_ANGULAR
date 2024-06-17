@@ -55,6 +55,7 @@ export class FetchDataService {
   icon = '';
   fetchedData: WeatherData | undefined = undefined;
   weatherData: any;
+  dataOk: boolean = false;
 
   constructor() {
     console.log('FetchDataService created');
@@ -67,34 +68,34 @@ export class FetchDataService {
     const data = await response.json();
     console.log('hourly data:', data);
     this.weatherData = data;
+    this.dataOk = true;
     return data;
   }
 
   getTemperatureForTime(time: string): number | null {
     switch (time) {
       case 'morning':
-        return this.getTemperatureAtHour(8);
+        return this.getTemperatureAtHour(6);
       case 'noon':
         return this.getTemperatureAtHour(12);
       case 'evening':
         return this.getTemperatureAtHour(18);
       case 'night':
-        return this.getTemperatureAtHour(24);
+        return this.getTemperatureAtHour(23);
       default:
         return null;
     }
   }
 
-  private getTemperatureAtHour(hour: number): number | null {
-    if (!this.weatherData || !this.weatherData.hourly) {
-      return null;
+  getTemperatureAtHour(hour: number): number | null {
+    if (this.weatherData) {
+      const temp = this.weatherData.hourly.find(
+        (hourly: { dt: number }) =>
+          new Date(hourly.dt * 1000).getHours() === hour
+      )?.temp;
+      return temp;
     }
-    const targetTime = new Date().setHours(hour, 0, 0, 0) / 1000;
-    const data = this.weatherData.hourly.find(
-      (entry: any) => entry.dt >= targetTime
-    );
-    console.log('hourly_temp', Math.round(data.temp));
-    return data ? Math.round(data.temp) : null;
+    return null;
   }
 
   async fetchCurrentWeather(city: string) {
@@ -109,6 +110,7 @@ export class FetchDataService {
       `${this.url}/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${this.apiKey}&units=metric`
     );
     const dataFinal = await responseFinal.json();
+    this.fetchHourlyWeather;
     this.location = dataFinal.name;
     this.temperature = dataFinal.main.temp;
     this.icon = dataFinal.weather[0].icon;

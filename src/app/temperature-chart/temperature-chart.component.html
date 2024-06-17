@@ -1,9 +1,4 @@
 <div *ngIf="weatherDataHourly" id="chart">
-  <apx-chart
-    [series]="chartSeries"
-    [chart]="chartOptions"
-    [xaxis]="xaxis"
-    [title]="title"
-  >
+  <apx-chart [series]="chartSeries" [chart]="chartOptions" [xaxis]="xaxis">
   </apx-chart>
 </div>

@@ -1,6 +1,8 @@
 <div class="app-container">
   <app-header></app-header>
-  <app-main-card></app-main-card>
+
+  @if(dataOk){<app-main-card></app-main-card>}
 </div>
+<app-donut-chart></app-donut-chart>
 
 <router-outlet></router-outlet>

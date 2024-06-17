@@ -28,8 +28,8 @@ export class MainCardComponent {
 
   get windSpeed() {
     const speedInMetersPerSecond = this.serviceFetch?.fetchedData?.wind.speed;
-    const speedInKilometersPerHour = speedInMetersPerSecond! * 3.6;
-    return speedInKilometersPerHour;
+    const speedInKilometersPerHour = (speedInMetersPerSecond! * 3.6).toFixed(1);
+    return parseFloat(speedInKilometersPerHour);
   }
 
   get pressure() {
@@ -48,8 +48,8 @@ export class MainCardComponent {
     return '/assets/weatherIcons/' + this.serviceFetch.icon + '.svg';
   }
 
-  temperatureForTime(time: string) {
-    return this.serviceFetch?.getTemperatureForTime(time);
+  temperatureForTime(time: number) {
+    return this.serviceFetch?.getTemperatureAtHour(time);
   }
 
   get date() {
