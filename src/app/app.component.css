@@ -1,19 +1,20 @@
 .app-container {
   display: flex;
-
   flex-direction: column;
   align-items: center;
-  justify-content: start;
-  height: 100vh;
+  justify-items: center;
+  gap: 1rem;
+  height: 100%;
+  width: 100%;
+
 }
 
-.weatherIcon {
-  width: 50vh;
-}
+
 
 .cards {
+  width:100%;
   display: flex;
-  flex-wrap: wrap;
+  overflow: auto;
   justify-content: center;
   gap: 1rem;
 }

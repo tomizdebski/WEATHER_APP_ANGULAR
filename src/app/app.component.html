@@ -1,8 +1,10 @@
 <div class="app-container">
+  <app-header/>
   <div class="cards">
-    <app-header></app-header>
-
-    @if(dataOk){<app-main-card></app-main-card> <app-card-week />}
+    @if(dataOk){
+    <app-main-card />
+    <app-card-week />
+    }
   </div>
 </div>
 
